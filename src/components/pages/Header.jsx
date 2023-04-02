@@ -1,7 +1,28 @@
-// const { NavLink } = require('react-router-dom');
+import styled from 'styled-components';
 
-// const Header = () => {
-//   return <header></header>
-// };
+const { NavLink } = require('react-router-dom');
 
-// export default Header;
+const Header = () => {
+  return (
+    <header>
+      <NavStyled>
+        <Navlink to="/">Home</Navlink>
+        <Navlink to="/movies">Movies</Navlink>
+      </NavStyled>
+    </header>
+  );
+};
+
+export default Header;
+
+const Navlink = styled(NavLink)`
+    font-size: 20px;
+    text-decoration: none;
+    color: gray;
+`
+
+const NavStyled = styled.nav`
+    display: flex;
+    gap: 20px;
+
+`

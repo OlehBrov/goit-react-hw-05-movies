@@ -1,5 +1,11 @@
 const Movies = () => {
-    return <h1>Movies</h1>
-}
+  return (
+    <form action="">
+      <label htmlFor="">
+        <input type="text" />
+      </label>
+    </form>
+  );
+};
 
 export default Movies;
