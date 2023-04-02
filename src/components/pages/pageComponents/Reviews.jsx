@@ -19,7 +19,18 @@ const Reviews = () => {
     setStatus(STATUS.PENDING);
     getMovieReviews(id)
       .then(reviewsData => {
-          setReviews(reviewsData.data.results);
+        console.log('reviewsData', reviewsData);
+        if (reviewsData.data.results.length === 0) {
+          setReviews([
+              {
+                  id: "000",
+              author: 'Oops!',
+              content: 'This movie has no reviews. Maybe its boring',
+            },
+          ]);
+          setStatus(STATUS.RESOLVED);
+        } else 
+        setReviews(reviewsData.data.results);
         setStatus(STATUS.RESOLVED);
       })
       .catch(error => setError(error), setStatus(STATUS.REJECTED));

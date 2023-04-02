@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const TrendingGallery = ({ movies }) => {
@@ -6,14 +6,14 @@ const TrendingGallery = ({ movies }) => {
     '🚀 ~ file: TrendingGallery.jsx:2 ~ TrendingGallery ~ movies:',
     movies
   );
-
+const location = useLocation()
   return (
     <>
       <h1>Today trending movies</h1>
       <TrendGall>
           {movies.map(movie => (
             <TrendMovieItem key={movie.id}>
-              <TrendMovieLink to={`movieDetails/${movie.id}`} state={movie.id}>{movie.title}</TrendMovieLink>
+              <TrendMovieLink to={`movieDetails/${movie.id}`} state={{ from: location}}>{movie.title}</TrendMovieLink>
             </TrendMovieItem>
           ))}
       </TrendGall>

@@ -1,8 +1,6 @@
 import getMovieDetails from 'components/utils/getMovieDetails';
 import { useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
-
-
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const [movieTitle, setMovieTitle] = useState('');
@@ -11,6 +9,9 @@ const MovieDetails = () => {
   const [poster, setPoster] = useState('');
   const [overview, setOverview] = useState('');
   const [genres, setGenres] = useState([]);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
+  console.log('MovieDetails ~ location:', location);
 
   const orderGenres = arr => {
     const allGenres = arr.reduce((total, genre) => {
@@ -18,7 +19,6 @@ const MovieDetails = () => {
       return total;
     }, []);
     setGenres(allGenres.join(', '));
-   
   };
 
   const { id } = useParams();
@@ -29,11 +29,10 @@ const MovieDetails = () => {
     setPoster('https://image.tmdb.org/t/p/w500' + movie.data.poster_path);
     setOverview(movie.data.overview);
     orderGenres(movie.data.genres);
-    console.log('movie', movie);
   });
   return (
     <>
-      {/* <Link>Back</Link> */}
+      <Link to={backLinkHref}>Back</Link>
       <div>
         <img src={poster} alt={movieTitle} />
         <h1>
@@ -54,8 +53,8 @@ const MovieDetails = () => {
           <li>
             <Link to={'Reviews'}>Reviews</Link>
           </li>
-              </ul>
-                <Outlet />
+        </ul>
+        <Outlet />
       </div>
     </>
   );
