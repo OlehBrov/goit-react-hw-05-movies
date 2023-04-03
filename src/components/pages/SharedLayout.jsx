@@ -1,9 +1,8 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from './Header';
-// import Container from './pageComponents/Container';
 
 const SharedLayout = () => {
   return (
@@ -12,9 +11,9 @@ const SharedLayout = () => {
         <Header />
       </StyledContainer>
       <StyledContainer>
-         <Suspense>
+        <Suspense>
           <Outlet />
-          </Suspense>
+        </Suspense>
       </StyledContainer>
     </>
   );
