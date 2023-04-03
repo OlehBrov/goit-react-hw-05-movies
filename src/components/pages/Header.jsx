@@ -16,13 +16,18 @@ const Header = () => {
 export default Header;
 
 const Navlink = styled(NavLink)`
-    font-size: 20px;
-    text-decoration: none;
-    color: gray;
-`
+  font-size: 20px;
+  text-decoration: none;
+  color: gray;
+  &.active{
+    color: tomato;
+  }
+`;
 
 const NavStyled = styled.nav`
-    display: flex;
-    gap: 20px;
-
-`
+  display: flex;
+  gap: 20px;
+  & < .active {
+    color: tomato;
+  }
+`;

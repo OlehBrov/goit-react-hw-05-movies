@@ -17,7 +17,7 @@ const HomePage = () => {
     useEffect(() => {
       setStatus(STATUS.PENDING)
         getTrendingMovies().then(data => {
-            console.log('data', data);
+
             setTrendingMovies(data.data.results);
             setStatus(STATUS.RESOLVED)
         }).catch(error => {
@@ -28,7 +28,8 @@ const HomePage = () => {
 
 
     if (status === STATUS.IDLE) return <h1>LOADING TRENDING MOVIES</h1>;
-    if (status === STATUS.RESOLVED) return <TrendingGallery movies={ trendingMovies} />
+  if (status === STATUS.RESOLVED) return <TrendingGallery movies={trendingMovies} />
+  if (status === STATUS.REJECTED) return <h1>There is error: {error.message }</h1>
   };
 
 

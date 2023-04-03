@@ -2,10 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const TrendingGallery = ({ movies }) => {
-  console.log(
-    '🚀 ~ file: TrendingGallery.jsx:2 ~ TrendingGallery ~ movies:',
-    movies
-  );
+
 const location = useLocation()
   return (
     <>
@@ -37,4 +34,8 @@ const TrendMovieItem = styled.li`
 
 const TrendMovieLink = styled(Link)`
   text-decoration: none;
+  color: black;
+  &:hover{
+    color: tomato;
+  }
 `;

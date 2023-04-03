@@ -1,6 +1,7 @@
 import getMovieDetails from 'components/utils/getMovieDetails';
 import { useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 const MovieDetails = () => {
   const [movieTitle, setMovieTitle] = useState('');
@@ -11,7 +12,7 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/movies';
-  console.log('MovieDetails ~ location:', location);
+
 
   const orderGenres = arr => {
     const allGenres = arr.reduce((total, genre) => {
@@ -31,18 +32,20 @@ const MovieDetails = () => {
     orderGenres(movie.data.genres);
   });
   return (
-    <>
-      <Link to={backLinkHref}>Back</Link>
+    <OverviewContainer>
+      <BackLinkStyled to={backLinkHref}>Back</BackLinkStyled>
       <div>
         <img src={poster} alt={movieTitle} />
-        <h1>
-          {movieTitle}, ({movieReleaseDate})
-        </h1>
-        <p>User score: {score}</p>
-        <h2>Overview</h2>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <p>{genres}</p>
+        <MovieDetailsStyled>
+          <HeadingStyled>
+            {movieTitle}, ({movieReleaseDate})
+          </HeadingStyled>
+          <p>User score: {score}</p>
+          <h2>Overview</h2>
+          <p>{overview}</p>
+          <h3>Genres</h3>
+          <p>{genres}</p>
+        </MovieDetailsStyled>
       </div>
       <div>
         <h4>Additional Information</h4>
@@ -56,8 +59,38 @@ const MovieDetails = () => {
         </ul>
         <Outlet />
       </div>
-    </>
+    </OverviewContainer>
   );
 };
 
 export default MovieDetails;
+
+const BackLinkStyled = styled(Link)`
+  display: flex;
+  width: 80px;
+  height: 45px;
+  background: gray;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    color: tomato;
+  }
+`;
+
+const OverviewContainer = styled.div`
+  display: block;
+`;
+
+const MovieDetailsStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+`
+
+const HeadingStyled = styled.h1`
+  margin-bottom: auto;
+`

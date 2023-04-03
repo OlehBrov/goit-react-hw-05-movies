@@ -19,18 +19,16 @@ const Reviews = () => {
     setStatus(STATUS.PENDING);
     getMovieReviews(id)
       .then(reviewsData => {
-        console.log('reviewsData', reviewsData);
         if (reviewsData.data.results.length === 0) {
           setReviews([
-              {
-                  id: "000",
+            {
+              id: '000',
               author: 'Oops!',
               content: 'This movie has no reviews. Maybe its boring',
             },
           ]);
           setStatus(STATUS.RESOLVED);
-        } else 
-        setReviews(reviewsData.data.results);
+        } else setReviews(reviewsData.data.results);
         setStatus(STATUS.RESOLVED);
       })
       .catch(error => setError(error), setStatus(STATUS.REJECTED));
@@ -47,6 +45,7 @@ const Reviews = () => {
           {reviews.map(el => (
             <li key={el.id}>
               <p>{el.author}</p>
+
               <p>{el.content}</p>
             </li>
           ))}
