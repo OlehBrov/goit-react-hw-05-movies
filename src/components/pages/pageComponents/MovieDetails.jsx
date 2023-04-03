@@ -1,7 +1,7 @@
 import getMovieDetails from 'components/utils/getMovieDetails';
 import { useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const MovieDetails = () => {
   const [movieTitle, setMovieTitle] = useState('');
@@ -32,11 +32,11 @@ console.log('location in MovieDetails', location)
     orderGenres(movie.data.genres);
   });
   return (
-    <OverviewContainer>
+    <>
       <BackLinkStyled to={backLinkHref.current}>Back</BackLinkStyled>
-      <div>
+      <DetailsWrapper className='details_wrap'>
         <img src={poster} alt={movieTitle} />
-        <MovieDetailsStyled>
+        <MovieDivStyled>
           <HeadingStyled>
             {movieTitle}, ({movieReleaseDate})
           </HeadingStyled>
@@ -45,8 +45,8 @@ console.log('location in MovieDetails', location)
           <p>{overview}</p>
           <h3>Genres</h3>
           <p>{genres}</p>
-        </MovieDetailsStyled>
-      </div>
+        </MovieDivStyled>
+      </DetailsWrapper>
       <div>
         <h4>Additional Information</h4>
         <ul>
@@ -59,12 +59,14 @@ console.log('location in MovieDetails', location)
         </ul>
         <Outlet />
       </div>
-    </OverviewContainer>
+    </>
   );
 };
 
 export default MovieDetails;
-
+const DetailsWrapper = styled.div`
+display:flex;
+`
 const BackLinkStyled = styled(Link)`
   display: flex;
   width: 80px;
@@ -81,11 +83,11 @@ const BackLinkStyled = styled(Link)`
   }
 `;
 
-const OverviewContainer = styled.div`
-  display: block;
-`;
+// const OverviewContainer = styled.div`
+//   display: block;
+// `;
 
-const MovieDetailsStyled = styled.div`
+const MovieDivStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 25px;
