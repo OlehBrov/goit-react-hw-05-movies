@@ -1,5 +1,5 @@
 import getMovieDetails from 'components/utils/getMovieDetails';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,8 +11,8 @@ const MovieDetails = () => {
   const [overview, setOverview] = useState('');
   const [genres, setGenres] = useState([]);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
-
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
+console.log('location in MovieDetails', location)
 
   const orderGenres = arr => {
     const allGenres = arr.reduce((total, genre) => {
@@ -33,7 +33,7 @@ const MovieDetails = () => {
   });
   return (
     <OverviewContainer>
-      <BackLinkStyled to={backLinkHref}>Back</BackLinkStyled>
+      <BackLinkStyled to={backLinkHref.current}>Back</BackLinkStyled>
       <div>
         <img src={poster} alt={movieTitle} />
         <MovieDetailsStyled>

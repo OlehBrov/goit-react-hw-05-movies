@@ -18,7 +18,7 @@ const Cast = () => {
         <h1>CAST</h1>
         <h2>Actors: </h2>
       {/* <p>{ cast}</p> */}
-      <ActorsList actorsList={ cast} />
+      <ActorsList actorsList={cast} />
     </>
 }
 
