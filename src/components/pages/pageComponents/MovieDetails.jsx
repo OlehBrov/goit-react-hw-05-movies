@@ -12,7 +12,6 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/movies');
-console.log('location in MovieDetails', location)
 
   const orderGenres = arr => {
     const allGenres = arr.reduce((total, genre) => {
