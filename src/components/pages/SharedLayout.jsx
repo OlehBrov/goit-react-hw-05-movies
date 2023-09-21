@@ -24,5 +24,5 @@ export default SharedLayout;
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 15px;
+ 
 `;

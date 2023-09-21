@@ -17,7 +17,7 @@ const Movies = () => {
       setSearchQuery(query);
       setCurrentSearchPage(1);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (!query) setSearchQuery('');

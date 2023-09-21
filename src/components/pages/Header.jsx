@@ -4,7 +4,7 @@ const { NavLink } = require('react-router-dom');
 
 const Header = () => {
   return (
-    <header>
+    <header className='header'>
       <NavStyled>
         <Navlink to="/">Home</Navlink>
         <Navlink to="/movies">Movies</Navlink>
@@ -27,7 +27,7 @@ const Navlink = styled(NavLink)`
 const NavStyled = styled.nav`
   display: flex;
   gap: 20px;
-  & < .active {
+  /* &<.active {
     color: tomato;
-  }
+  } */
 `;
