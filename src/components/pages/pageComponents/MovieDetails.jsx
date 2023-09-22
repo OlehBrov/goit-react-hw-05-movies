@@ -1,6 +1,6 @@
 import getMovieDetails from 'components/utils/getMovieDetails';
 import { useRef, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components'
 
 const MovieDetails = () => {
@@ -12,7 +12,11 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/movies');
-
+  const hideAdditionalRef = useRef(location.state)
+  const navigate = useNavigate();
+  console.log('location', location)
+  console.log('backLinkHref', backLinkHref)
+  console.log('hideAdditionalRef', hideAdditionalRef)
   const orderGenres = arr => {
     const allGenres = arr.reduce((total, genre) => {
       total.push(genre.name);
@@ -31,26 +35,27 @@ const MovieDetails = () => {
     orderGenres(movie.data.genres);
   });
   return (
-    <>
-      <BackLinkStyled to={backLinkHref.current}>Back</BackLinkStyled>
-      <DetailsWrapper className='details_wrap'>
-        <img src={poster} alt={movieTitle} />
-        <MovieDivStyled>
-          <HeadingStyled>
+    <div className='container'>
+      <Link className='back-btn' to={backLinkHref.current}>Back</Link>
+      <div className='details-wrap'>
+        <img className='details-poster' src={poster} alt={movieTitle} />
+        <div className='details-movie-info'>
+          <h1 className='details-movie-name'>
             {movieTitle}, ({movieReleaseDate})
-          </HeadingStyled>
-          <p>User score: {score}</p>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-          <h3>Genres</h3>
-          <p>{genres}</p>
-        </MovieDivStyled>
-      </DetailsWrapper>
+          </h1>
+          <p className='details-movie-score'>User score: {score}</p>
+          <h2 className='details-movie-header'>Overview</h2>
+          <p className='details-movie-overview'>{overview}</p>
+          <h2 className='details-movie-header'>Genres</h2>
+          <p className='details-movie-genre'>{genres}</p>
+        </div>
+      </div>
       <div>
-        <h4>Additional Information</h4>
+        <h2 className='details-movie-header'>Additional Information</h2>
         <ul>
           <li>
-            <Link to={'Cast'}>Cast</Link>
+            <button onClick={()=>navigate('Cast')}>CAST</button>
+            {/* <Link to={'Cast'}>Cast</Link> */}
           </li>
           <li>
             <Link to={'Reviews'}>Reviews</Link>
@@ -58,7 +63,7 @@ const MovieDetails = () => {
         </ul>
         <Outlet />
       </div>
-    </>
+    </div>
   );
 };
 

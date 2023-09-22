@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize; 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,22 +7,112 @@
   html {
     font-family: Montserrat, system-ui, sans-serif;
   }
+  body{
+    background-color: rgb(226, 211, 193);
+    margin: 0;
+  }
 }
 
 .header{
-  @apply bg-slate-500 m-0 py-4 px-5
+  @apply bg-slate-500 m-0 py-4 px-8 shadow-headerShadow
+  
+}
+.nav-link{
+  @apply text-base text-yellow-100
+}
+.nav-link.active {
+  @apply text-green-600
 }
 
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header-nav{
+  @apply flex justify-between
+}
+.container{
+  @apply my-0 mx-auto py-3 px-4
+}
+.home-section-header{
+  @apply text-2xl text-gray-800 text-center font-bold
+}
+.movie-gallery-list{
+  @apply grid grid-cols-2 gap-3 py-4 px-3
+}
+.movie-gallery-item{
+  @apply text-lg rounded-xl overflow-hidden shadow-cardShadow
+}
+.poster{
+  @apply w-screen
+}
+.poster-wrap{
+  @apply relative
+}
+.poster-descr{
+  @apply absolute top-0 w-full h-full bg-descrGradient text-black p-5
+}
+.movie-card-link{
+  @apply no-underline
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.movie-card-link:hover {
+  @apply text-red-500
+}
+
+.movie-link-title{
+  @apply text-xl text-gray-800 font-semibold py-4 px-2
+}
+.search-form-wrap{
+  @apply flex mt-6 justify-between
+}
+.search-form{
+  @apply flex relative 
+}
+.search-input{
+  @apply pl-2 pr-16 py-2 text-sm border-2 border-gray-600 border-opacity-50 border-solid rounded-lg text-black w-72 shadow-inputShadow
+}
+.search-input-label{
+  @apply relative mx-auto
+}
+.submit-search-btn{
+  @apply absolute top-3px right-0 px-3 border-l-2 bg-none h-8
+}
+.clear-btn{
+  @apply text-sm border-2 bg-white border-gray-600 border-opacity-50 border-solid rounded-lg text-black w-20 shadow-inputShadow
+}
+.clear-btn:disabled{
+  @apply text-gray-500 shadow-none
+}
+.back-btn{
+  @apply inline-block text-xl py-2 px-4 font-semibold border-2 bg-white border-gray-600 border-opacity-50 border-solid rounded-lg text-black shadow-inputShadow
+}
+.details-wrap{
+  @apply flex my-10
+}
+.details-movie-info{
+@apply flex flex-col ml-6
+}
+.details-movie-name{
+  @apply text-2xl
+}
+.details-movie-score{
+  @apply mb-4 text-sm
+}
+.details-movie-header{
+  @apply text-xl mb-3
+}
+.details-movie-overview{
+  @apply mb-3 text-base
+}
+.details-movie-genre{
+  @apply text-sm
+}
+.details-poster{
+  @apply w-1/3 h-fit
+}
+.casting-list{
+  @apply grid grid-cols-2 gap-1
+}
+/* .actor-img{
+  @apply max-w-[200px]:
+} */
+/* .casting-actor{
+  @apply h-72
 } */

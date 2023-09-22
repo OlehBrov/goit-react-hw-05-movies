@@ -12,6 +12,7 @@ const Movies = () => {
   const [currentSearchPage, setCurrentSearchPage] = useState(0);
   const query = searchParams.get('query');
   const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     if (query) {
       setSearchQuery(query);
@@ -34,7 +35,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (currentSearchPage === 0) return;
-    // if (searchQuery === '') return;
+    if (searchQuery === '') return;
     searchMovies(searchQuery, currentSearchPage).then(movie => {
       setMoviesList(movie.data.results);
       if (movie.data.results.length > 0) setTotalPages(movie.data.total_pages);
@@ -42,18 +43,29 @@ const Movies = () => {
     });
   }, [currentSearchPage, searchQuery]);
 
+
   return (
-    <div>
-      <form action="" onSubmit={e => fetchMovies(e)}>
-        <label htmlFor="">
-          <StyledInput
+    <div className='container'>
+      <div className='search-form-wrap'>
+        <form className='search-form' action="" onSubmit={e => fetchMovies(e)}>
+        <label className='search-input-label' htmlFor="">
+          <input
+            className='search-input'
             type="text"
             value={query ? query : ''}
             onChange={e => setSearchParams({ query: e.target.value })}
           />
+        <button className='submit-search-btn' type="submit">Search</button>
         </label>
-        <SearchButton type="submit">Search</SearchButton>
-      </form>
+        </form>
+        <button className='clear-btn' disabled={!moviesList} onClick={() => {
+        setMoviesList(null)
+          setSearchParams('')
+          
+      }}>Clear</button>
+      </div>
+      
+   
       {searchQuery === '' && <></>}
       {moviesList && <MoviesList moviesList={moviesList} />}
       {moviesList && (
