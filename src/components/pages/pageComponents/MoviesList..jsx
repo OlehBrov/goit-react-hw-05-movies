@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import { useLayoutEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import { Card } from './Card';
 
 const MoviesList = ({ moviesList }) => {

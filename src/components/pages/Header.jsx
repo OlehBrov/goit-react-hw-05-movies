@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 const { NavLink } = require('react-router-dom');
 
 const Header = () => {

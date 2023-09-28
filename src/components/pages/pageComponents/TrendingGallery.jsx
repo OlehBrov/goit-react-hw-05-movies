@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { useLayoutEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
+
 import { Card } from './Card';
 
 const TrendingGallery = ({ movies }) => {
@@ -17,11 +17,11 @@ const TrendingGallery = ({ movies }) => {
       scale: 0.7,
       stagger: {
         amount: 2,
-        // from: 'start',
+
         grid: 'auto',
         ease: 'power2.inOut',
       },
-      // duration: 1,
+
     });
 
     movieCard.forEach(card => {
@@ -54,23 +54,3 @@ const TrendingGallery = ({ movies }) => {
 };
 
 export default TrendingGallery;
-
-// const TrendGall = styled.ul`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 10px;
-// `;
-
-// const TrendMovieItem = styled.li`
-//   font-size: 18px;
-//   color: darkblue;
-//   list-style: none;
-// `;
-
-// const TrendMovieLink = styled(Link)`
-//   text-decoration: none;
-//   color: black;
-//   &:hover {
-//     color: tomato;
-//   }
-// `;

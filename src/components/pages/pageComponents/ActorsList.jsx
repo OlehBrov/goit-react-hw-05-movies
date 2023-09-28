@@ -81,13 +81,3 @@ const ActorsList = ({ actorsList }) => {
 };
 
 export default ActorsList;
-
-// const ActorsCatsList = styled.ul`
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 15px;
-// `;
-
-// const ActorsListItem = styled.li`
-//   list-style: none;
-// `;
