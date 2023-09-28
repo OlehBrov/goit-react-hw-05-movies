@@ -40,7 +40,7 @@ const Reviews = () => {
   if (status === STATUS.RESOLVED)
     return (
       <div className='review-list-wrap'>
-        <ul className='review-list'>
+        <ul className='review-list mt-4'>
           {reviews.map(el => (
             <li key={el.id} className='review-item'>
               <p className='review-author'>{el.author}</p>

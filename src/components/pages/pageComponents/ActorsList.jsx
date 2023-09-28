@@ -59,10 +59,10 @@ const ActorsList = ({ actorsList }) => {
     });
   });
   return (
-    <div className="casting-list" ref={list}>
+    <div className="casting-list mt-4" ref={list}>
       {actorsList.map(el => (
         <div className="casting-actor" key={el.cast_id}>
-          <div className='actor-image-wrap'>
+          <div className='actor-image-wrap mb-2'>
           <img
             ref={imgRef}
             className="actor-image"

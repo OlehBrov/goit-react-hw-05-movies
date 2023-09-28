@@ -15,12 +15,11 @@ const TrendingGallery = ({ movies }) => {
       yPercent: -100,
       opacity: 0,
       scale: 0.7,
-      stagger: {
-        amount: 2,
-
-        grid: 'auto',
-        ease: 'power2.inOut',
-      },
+      // stagger: {
+      //   amount: 2,
+      //   grid: 'auto',
+      //   ease: 'power2.inOut',
+      // },
 
     });
 

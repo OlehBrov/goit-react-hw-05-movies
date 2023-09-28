@@ -187,15 +187,15 @@ const MovieDetails = () => {
       </div>
       <div>
         <h2 className="details-movie-header">Additional Information</h2>
-        <ul>
+        <ul className='additional-info-list'>
           <li>
             {/* <button onClick={() => navigate('Cast')}>CAST</button> */}
-            <button onClick={castHandler}>CAST</button>
+            <button className='additional-info-btn' onClick={castHandler}>CAST</button>
 
             {/* <Link to={'Cast'}>Cast</Link> */}
           </li>
           <li>
-            <button onClick={reviewsHandler}>Reviews</button>
+            <button className='additional-info-btn' onClick={reviewsHandler}>Reviews</button>
             {/* <Link to={'Reviews'}>Reviews</Link> */}
           </li>
         </ul>
