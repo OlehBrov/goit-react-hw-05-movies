@@ -8,7 +8,7 @@ import {
   useNavigate,
   useParams,
 } from 'react-router-dom';
-import styled from 'styled-components';
+
 
 const MovieDetails = () => {
   const [movieTitle, setMovieTitle] = useState('');
@@ -206,35 +206,4 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-const DetailsWrapper = styled.div`
-  display: flex;
-`;
-const BackLinkStyled = styled(Link)`
-  display: flex;
-  width: 80px;
-  height: 45px;
-  background: gray;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: white;
-  justify-content: center;
-  align-items: center;
-  &:hover {
-    color: tomato;
-  }
-`;
 
-// const OverviewContainer = styled.div`
-//   display: block;
-// `;
-
-const MovieDivStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 25px;
-`;
-
-const HeadingStyled = styled.h1`
-  margin-bottom: auto;
-`;
