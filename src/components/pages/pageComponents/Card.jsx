@@ -10,7 +10,6 @@ export const Card = ({ movie }) => {
         state={{ from: location }}
       >
         <div className="poster-wrap">
-          {console.log(movie.poster_path !== null ? true : false)}
           <img
             className="poster"
             src={

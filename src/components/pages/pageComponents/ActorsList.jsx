@@ -39,7 +39,8 @@ const ActorsList = ({ actorsList }) => {
       interval: 0.1,
       invalidateOnRefresh: true,
       start: 'top 80%',
-      end: 'top top',
+      end: 'center top',
+      // markers: true,
       scrub: true,
       onEnter: batch =>
         gsap.to(batch, {
@@ -61,6 +62,7 @@ const ActorsList = ({ actorsList }) => {
     <div className="casting-list" ref={list}>
       {actorsList.map(el => (
         <div className="casting-actor" key={el.cast_id}>
+          <div className='actor-image-wrap'>
           <img
             ref={imgRef}
             className="actor-image"
@@ -70,7 +72,7 @@ const ActorsList = ({ actorsList }) => {
                 : 'https://placehold.co/200x300?text=No%20image'
             }
             alt={el.name}
-          />
+          /></div>
           <p>{el.name}</p> <p>Character: {el.character}</p>
         </div>
       ))}

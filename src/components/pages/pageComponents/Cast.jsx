@@ -3,8 +3,6 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ActorsList from './ActorsList';
 
-
-
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const { id } = useParams();
@@ -14,15 +12,11 @@ const Cast = () => {
     });
   }, [id]);
 
-
-
   return (
-    <>
-      <h1>CAST</h1>
-      <h2>Actors: </h2>
+    <div className='casting-list-wrap'>
       {/* <p>{ cast}</p> */}
       <ActorsList actorsList={cast} />
-    </>
+    </div>
   );
 };
 

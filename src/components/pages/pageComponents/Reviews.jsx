@@ -39,18 +39,17 @@ const Reviews = () => {
 
   if (status === STATUS.RESOLVED)
     return (
-      <>
-        <h1>REVIEWS</h1>
-        <ul>
+      <div className='review-list-wrap'>
+        <ul className='review-list'>
           {reviews.map(el => (
-            <li key={el.id}>
-              <p>{el.author}</p>
+            <li key={el.id} className='review-item'>
+              <p className='review-author'>{el.author}</p>
 
-              <p>{el.content}</p>
+              <p className='review-content'>{el.content}</p>
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   if (status === STATUS.REJECTED) return <h1>Some error - {error} happened</h1>;
 };

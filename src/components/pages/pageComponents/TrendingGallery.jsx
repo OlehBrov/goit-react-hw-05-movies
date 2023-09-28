@@ -9,20 +9,21 @@ const TrendingGallery = ({ movies }) => {
   useLayoutEffect(() => {
     if (!movies) return;
     gsap.set('.poster-descr', { yPercent: 100, opacity: 0 });
-    gsap.from('.movie-gallery-item', {
+
+    const movieCard = gsap.utils.toArray('.movie-gallery-item');
+    gsap.from(movieCard, {
       yPercent: -100,
       opacity: 0,
       scale: 0.7,
       stagger: {
-        amount: 3,
-        from: 'start',
+        amount: 2,
+        // from: 'start',
         grid: 'auto',
         ease: 'power2.inOut',
       },
-      // duration: 0.1,
+      // duration: 1,
     });
 
-    const movieCard = gsap.utils.toArray('.movie-gallery-item');
     movieCard.forEach(card => {
       const description = card.children[0].children[0].children[1];
 
@@ -45,7 +46,7 @@ const TrendingGallery = ({ movies }) => {
       <h1 className="home-section-header">Today trending movies</h1>
       <div className="movie-gallery-list">
         {movies.map(movie => (
-          <Card movie={movie} location={{ from: location}} key={movie.id} />
+          <Card movie={movie} location={{ from: location }} key={movie.id} />
         ))}
       </div>
     </div>
