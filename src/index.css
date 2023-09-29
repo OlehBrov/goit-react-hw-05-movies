@@ -130,7 +130,7 @@
   @apply text-justify
 }
 .additional-info-list{
-  @apply flex gap-3
+  @apply flex gap-3 flex-col lg:flex-row
 }
 .additional-info-btn{
   @apply border-2 border-solid border-indigo-500 font-bold bg-indigo-400 rounded-xl p-2 w-52
